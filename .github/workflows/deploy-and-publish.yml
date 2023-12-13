@@ -30,6 +30,5 @@ jobs:
           git config --global user.email "igortrindademe@gmail.com"
           git config --global user.name "Igor Trindade"
           npm run release
-          npm publish --access public --tolerate-republish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
