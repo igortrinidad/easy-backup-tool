@@ -1,28 +1,14 @@
-# Link local composer packages
+# Easy backup tool
 
-composer-link-local is a tool to simplify the process of linking local Composer packages and updating your `composer.json` file to use the local versions of these packages during development. This can be especially useful for local package development and testing.
+easy-backup-tool is a simple tool to help you get the *backup* or *restore* commands for MySQL or PostgreSQL db engines running both on docker or non docker enviroment.
 
 ## How it works
 
-The tool will map your composer.json required deps, let you decide which of those deps you want to link locally, search over 3 (three) layers of directory structure above and below each layer and finally add the link for each dependency that you selected and was founded near the current directory using the "repositories" attribute of your composer.json
+The tool will ask you some questions regarding your database and environment and will generate the backup and restore commands based 
+on your answers.
 
-```js
-
-  {
-    //... composer.json contents
-
-    "repositories": [
-      {
-        "type": "path",
-        "url": "/path/to/you/local/dependecy",
-        "options": {
-          "symlink": true
-        }
-      }
-    ]
-
-    //... rest of your composer.json
-  }
+```shell
+  npx easy-backup-tool
 ```
 
 ## Running

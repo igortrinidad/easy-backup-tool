@@ -1,0 +1,49 @@
+{
+  "git": {
+    "commitMessage": "chore: release v${version}"
+  },
+  "github": {
+    "release": true
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "gitRawCommitsOpts": {
+        "merges": true
+      },
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          },
+          {
+            "type": "docs",
+            "section": "Documentation"
+          },
+          {
+            "type": "chore",
+            "section": "Routine changes"
+          },
+          {
+            "type": "test",
+            "section": "Automated tests"
+          },
+          {
+            "type": "wip",
+            "section": "Features and cchanges in progress"
+          },
+          {
+            "type": "merge",
+            "section": "Merge branches"
+          }
+        ]
+      }
+    }
+  }
+}
