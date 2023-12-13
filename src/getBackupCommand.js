@@ -8,7 +8,7 @@ export const getRestoreCommand = (settings) => {
     command += `docker exec -i ${ settings.dockerContainerName } `
   }
 
-  command += `${ settings.dbEngine === 'postgres' ? 'psql' : 'mysql' } -U ${ settings.databaseUser } -p ${ settings.databaseName } < ${ settings.backupFilePath }`
+  command += `${ settings.dbEngine === 'postgres' ? 'psql' : 'mysql' } -U ${ settings.databaseUser } ${ settings.databaseName } < ${ settings.backupFilePath }`
   return command
 }
 
@@ -21,7 +21,7 @@ export const getBackupCommand = (settings) => {
 
   const backupFilePath = path.join(`${ settings.databaseName }-${ new Date().toISOString().replace(/:/g, '-') }.sql`)
 
-  command += `${ settings.dbEngine === 'postgres' ? 'pg_dump' : 'mysqldump' } -U ${ settings.databaseUser } -p ${ settings.databaseName } > ${ backupFilePath }`
+  command += `${ settings.dbEngine === 'postgres' ? 'pg_dump' : 'mysqldump' } -U ${ settings.databaseUser } ${ settings.databaseName } > ${ backupFilePath }`
   return command
 
 }
