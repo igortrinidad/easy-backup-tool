@@ -1,7 +1,7 @@
 {
   "name": "@igortrindade/easy-backup-tool",
   "type": "module",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A small tool to help restore and create database backups",
   "main": "./bin/run-easy-backup-tool.js",
   "scripts": {
