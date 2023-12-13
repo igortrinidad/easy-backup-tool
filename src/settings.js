@@ -10,10 +10,10 @@ import { scanDirsForSqlFiles } from './scanDirsForSqlFiles.js';
 export const getSettings = async (currentDirectory) => {
 
   const settingsRcExists = fse.pathExistsSync(`${currentDirectory}/.easy-backup-toolrc`)
-  let settings
+  let settings, useFoundedSettings
 
   if(settingsRcExists) {
-    const useFoundedSettings = await select({
+    useFoundedSettings = await select({
       message: 'We found a .easy-backup-toolrc file, do you want to use it?',
       choices: [
         {
@@ -27,11 +27,12 @@ export const getSettings = async (currentDirectory) => {
       ]
     })
 
-    if(!useFoundedSettings) {
-      settings = await defineUserSettings(currentDirectory)
-    } else {
-      settings =  await fse.readJson(`${currentDirectory}/.easy-backup-toolrc`)
-    }
+  }
+  
+  if(!settingsRcExists || !useFoundedSettings) {
+    settings = await defineUserSettings(currentDirectory)
+  } else {
+    settings =  await fse.readJson(`${currentDirectory}/.easy-backup-toolrc`)
   }
 
   saveSettings(currentDirectory, settings)
