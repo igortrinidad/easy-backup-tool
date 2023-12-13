@@ -6,7 +6,7 @@
     "release": true
   },
   "npm": {
-    "versionArgs": ["--allow-same-version", "--workspaces-update=false"],
+    "versionArgs": ["--allow-same-version", "--tolerate-republish"],
     "publishArgs": ["--tolerate-republish"]
   },
   "publishConfig": {
