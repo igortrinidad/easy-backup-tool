@@ -17,8 +17,9 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '16.18.1'
           registry-url: 'https://registry.npmjs.org'
+          scope: '@igortrindade'
           always-auth: true
 
       - name: Install dependencies
